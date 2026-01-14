@@ -1,241 +1,564 @@
-<div class="hub">
-  <header class="hero">
-    <div class="kicker">Dominick Jones Services Inc.</div>
-    <h1>One brand.<br/>Multiple verticals.</h1>
-    <p class="sub">
-      Real estate, drone showcase, media management & consulting, and nonprofit work — presented with clarity and intention.
-    </p>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="Dominick Jones Services Inc. — Real Estate, Photography, Media Management, and Homes International Inc." />
+  <meta name="theme-color" content="#0b0d12" />
+  <title>Dominick Jones Services Inc.</title>
 
-    <div class="cta">
-      <a class="btn primary" href="#contact">Contact</a>
-      <a class="btn ghost" href="#verticals">Explore</a>
+  <!--
+    FILES TO UPLOAD INTO YOUR GITHUB REPO (recommended):
+      /assets/logos/nu-life-realty.png
+      /assets/logos/skycraft-media.png
+      /assets/logos/homes-international.png
+
+    OPTIONAL PHOTOS (for the gallery section):
+      /assets/photos/1.jpg
+      /assets/photos/2.jpg
+      /assets/photos/3.jpg
+  -->
+
+  <style>
+    :root{
+      --bg: #0b0d12;
+      --panel: rgba(255,255,255,0.06);
+      --panel2: rgba(255,255,255,0.035);
+      --border: rgba(255,255,255,0.14);
+      --text: rgba(255,255,255,0.92);
+      --muted: rgba(255,255,255,0.70);
+      --muted2: rgba(255,255,255,0.55);
+      --accent: #ffffff;
+
+      --radius-lg: 18px;
+      --radius: 16px;
+      --radius-sm: 12px;
+    }
+
+    *{ box-sizing: border-box; }
+    html{ scroll-behavior:smooth; }
+    body{
+      margin:0;
+      background: radial-gradient(1000px 520px at 18% 0%, rgba(255,255,255,0.10), transparent 62%),
+                  radial-gradient(900px 520px at 86% 18%, rgba(255,255,255,0.07), transparent 55%),
+                  var(--bg);
+      color: var(--text);
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    a{ color: inherit; }
+    .wrap{
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 22px;
+    }
+
+    /* Top bar */
+    .topbar{
+      display:flex;
+      align-items:center;
+      justify-content: space-between;
+      gap: 14px;
+      padding: 14px 16px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      background: linear-gradient(180deg, var(--panel), var(--panel2));
+      backdrop-filter: blur(10px);
+    }
+    .brand{
+      display:flex;
+      align-items:center;
+      gap: 10px;
+      min-width: 0;
+    }
+    .brand-dot{
+      width: 10px;
+      height: 10px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.85);
+      box-shadow: 0 8px 22px rgba(0,0,0,0.35);
+      flex: 0 0 auto;
+    }
+    .brand-text{
+      display:flex;
+      flex-direction: column;
+      gap: 2px;
+      min-width: 0;
+    }
+    .brand-text strong{
+      font-size: 13px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .brand-text span{
+      font-size: 12px;
+      color: var(--muted2);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .nav{
+      display:flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    /* Buttons */
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      text-decoration:none;
+      border-radius: var(--radius-sm);
+      padding: 10px 12px;
+      border: 1px solid var(--border);
+      color: var(--text);
+      font-weight: 650;
+      background: rgba(255,255,255,0.04);
+      transition: transform .12s ease, border-color .12s ease, background .12s ease;
+      user-select: none;
+      line-height: 1;
+      white-space: nowrap;
+    }
+    .btn:hover{ transform: translateY(-1px); border-color: rgba(255,255,255,0.25); }
+    .btn.primary{
+      background: var(--accent);
+      color: #0b0d12;
+      border-color: rgba(255,255,255,0.65);
+    }
+    .btn.ghost{ background: rgba(255,255,255,0.03); }
+    .btn.small{ padding: 9px 11px; font-size: 13.5px; border-radius: 11px; }
+
+    /* Sections */
+    .section{
+      margin-top: 14px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      background: linear-gradient(180deg, var(--panel), var(--panel2));
+      padding: 22px;
+    }
+
+    /* Hero */
+    .hero{
+      padding: 28px 22px;
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      background: linear-gradient(180deg, rgba(255,255,255,0.07), rgba(255,255,255,0.03));
+    }
+    .kicker{
+      font-size: 12px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--muted2);
+      margin-bottom: 10px;
+    }
+    h1{
+      margin: 0 0 10px 0;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      font-size: clamp(30px, 4.2vw, 56px);
+      line-height: 1.02;
+    }
+    .sub{
+      margin: 0 0 18px 0;
+      color: var(--muted);
+      max-width: 72ch;
+      line-height: 1.58;
+      font-size: 15.5px;
+    }
+    .hero-actions{ display:flex; gap: 12px; flex-wrap: wrap; }
+
+    /* Grid cards */
+    .grid{
+      display:grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 14px;
+    }
+    .card{
+      border-radius: var(--radius);
+      padding: 18px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.03));
+      border: 1px solid var(--border);
+      transition: transform .18s ease, border-color .18s ease, background .18s ease;
+    }
+    .card:hover{
+      transform: translateY(-2px);
+      border-color: rgba(255,255,255,0.24);
+      background: linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.05));
+    }
+    .tag{
+      display:inline-block;
+      padding: 6px 10px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      color: var(--muted2);
+      font-size: 12px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+    .card h2{
+      margin: 0 0 8px 0;
+      font-size: 18px;
+      letter-spacing: -0.01em;
+    }
+    .card p{
+      margin: 0 0 14px 0;
+      color: var(--muted);
+      line-height: 1.55;
+      font-size: 14.5px;
+    }
+
+    /* Logo row / badge */
+    .brandrow{
+      margin: 10px 0 10px;
+      display:flex;
+      align-items:center;
+      gap:10px;
+    }
+    .brandlogo{
+      height: 34px;
+      width: auto;
+      object-fit: contain;
+      opacity: 0.98;
+      filter: drop-shadow(0 10px 20px rgba(0,0,0,0.30));
+    }
+    .logo-chip{
+      display:inline-flex;
+      align-items:center;
+      padding: 8px 10px;
+      border-radius: 14px;
+      background: rgba(255,255,255,0.92);
+      border: 1px solid rgba(255,255,255,0.25);
+    }
+    .brandlogo--homes{ height: 32px; }
+    .text-badge{
+      font-size: 12px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      padding: 6px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.18);
+      color: rgba(255,255,255,0.65);
+      background: rgba(255,255,255,0.03);
+    }
+
+    .actions{ display:flex; gap:10px; flex-wrap: wrap; }
+
+    /* Featured section */
+    .two-col{
+      display:grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 14px;
+      margin-top: 14px;
+    }
+    .panel{
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.03));
+      padding: 16px;
+    }
+    .panel h3{
+      margin: 0 0 8px 0;
+      font-size: 14px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--muted2);
+    }
+    .panel p{
+      margin: 0 0 14px 0;
+      color: var(--muted);
+      line-height: 1.55;
+      font-size: 14.5px;
+    }
+
+    .media-grid{
+      display:grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 10px;
+      margin-top: 10px;
+    }
+    .media-grid img{
+      width:100%;
+      height:140px;
+      object-fit:cover;
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,0.14);
+      background: rgba(255,255,255,0.03);
+    }
+
+    .video{
+      position: relative;
+      width: 100%;
+      padding-top: 56.25%;
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,0.14);
+      background: rgba(255,255,255,0.03);
+    }
+    .video iframe{
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    /* Contact */
+    .contact-grid{
+      display:grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+      margin-top: 12px;
+    }
+    .contact-item{
+      display:flex;
+      flex-direction: column;
+      gap: 6px;
+      padding: 14px;
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,0.14);
+      background: rgba(255,255,255,0.04);
+      text-decoration:none;
+      color: inherit;
+      transition: transform .12s ease, border-color .12s ease;
+    }
+    .contact-item:hover{ transform: translateY(-1px); border-color: rgba(255,255,255,0.25); }
+    .contact-item .label{
+      font-size: 12px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.55);
+    }
+    .contact-item .value{
+      font-size: 14.5px;
+      color: rgba(255,255,255,0.90);
+      font-weight: 650;
+    }
+
+    .fineprint{
+      margin-top: 16px;
+      color: var(--muted2);
+      font-size: 12px;
+    }
+
+    /* Responsive */
+    @media (max-width: 980px){
+      .two-col{ grid-template-columns: 1fr; }
+    }
+    @media (max-width: 860px){
+      .grid{ grid-template-columns: 1fr; }
+      .media-grid{ grid-template-columns: 1fr; }
+      .media-grid img{ height: 200px; }
+      .contact-grid{ grid-template-columns: 1fr; }
+      .nav{ display:none; } /* keeps topbar clean on mobile */
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+    <!-- Topbar -->
+    <div class="topbar">
+      <div class="brand">
+        <div class="brand-dot" aria-hidden="true"></div>
+        <div class="brand-text">
+          <strong>Dominick Jones Services Inc.</strong>
+          <span>Real Estate • Photography • Media Management • Nonprofit</span>
+        </div>
+      </div>
+
+      <div class="nav" aria-label="Primary">
+        <a class="btn small ghost" href="#verticals">Verticals</a>
+        <a class="btn small ghost" href="#featured">Featured</a>
+        <a class="btn small primary" href="#contact">Contact</a>
+      </div>
     </div>
-  </header>
 
-  <section id="verticals" class="grid">
-    <article class="card">
-      <div class="tag">Real Estate</div>
-      <div class="brandrow">
-  <img class="brandlogo" src="assets/logos/real-estate.png" alt="Real Estate logo">
-</div>
+    <!-- Hero -->
+    <section class="section" id="home">
+      <div class="hero">
+        <div class="kicker">Dominick Jones Services Inc.</div>
+        <h1>One brand.<br/>Multiple verticals.</h1>
+        <p class="sub">
+          Clean work, clear process, and strong execution — from property to visuals to media systems,
+          plus community housing advocacy through Homes International Inc.
+        </p>
 
-      <h2>Buy • Sell • Invest</h2>
-      <p>Investment-minded guidance, acquisitions, leasing support, and strategy in Indianapolis and beyond.</p>
-      <div class="actions">
-        <a class="btn small primary" href="#contact">Inquire</a>
-        <a class="btn small ghost" href="#">Learn more</a>
+        <div class="hero-actions">
+          <a class="btn primary" href="#contact">Contact</a>
+          <a class="btn ghost" href="#verticals">Explore verticals</a>
+        </div>
       </div>
-    </article>
 
-    <article class="card">
-      <div class="tag">Drone</div>
-      <h2>Showcase + Visuals</h2>
-      <p>Aerial photo and video for listings, construction updates, venues, events, and brand content.</p>
-      <div class="actions">
-        <a class="btn small primary" href="#contact">Request a quote</a>
-        <a class="btn small ghost" href="#">Portfolio</a>
+      <!-- Verticals -->
+      <div class="grid" id="verticals">
+        <!-- Real Estate -->
+        <article class="card">
+          <div class="tag">Real Estate</div>
+          <div class="brandrow">
+            <img class="brandlogo" src="assets/logos/nu-life-realty.png" alt="Nu Life Realty" />
+          </div>
+          <h2>Buy • Sell • Invest</h2>
+          <p>Investment-minded guidance, acquisitions, and leasing support in Indianapolis and beyond.</p>
+          <div class="actions">
+            <a class="btn small primary" href="#contact">Inquire</a>
+            <a class="btn small ghost" href="#contact">Book a consult</a>
+          </div>
+        </article>
+
+        <!-- Photography -->
+        <article class="card">
+          <div class="tag">Photography</div>
+          <div class="brandrow">
+            <img class="brandlogo" src="assets/logos/skycraft-media.png" alt="Skycraft Media" />
+          </div>
+          <h2>Showcase + Visuals</h2>
+          <p>Photo and drone capture for listings, brands, construction updates, venues, and events.</p>
+          <div class="actions">
+            <a class="btn small primary" href="#featured">View work</a>
+            <a class="btn small ghost" href="#contact">Request a quote</a>
+          </div>
+        </article>
+
+        <!-- Media Management -->
+        <article class="card">
+          <div class="tag">Media Management</div>
+          <div class="brandrow">
+            <span class="text-badge">Consulting</span>
+            <span class="text-badge">Systems</span>
+          </div>
+          <h2>Strategy + Operations</h2>
+          <p>Content planning, production workflows, distribution, and performance-minded systems.</p>
+          <div class="actions">
+            <a class="btn small primary" href="#contact">Start a project</a>
+            <a class="btn small ghost" href="#contact">Availability</a>
+          </div>
+        </article>
+
+        <!-- Homes International -->
+        <article class="card">
+          <div class="tag">Homes International Inc.</div>
+          <div class="brandrow">
+            <span class="logo-chip">
+              <img class="brandlogo brandlogo--homes" src="assets/logos/homes-international.png" alt="Homes International Inc." />
+            </span>
+          </div>
+          <h2>Housing Advocacy</h2>
+          <p>Community work centered on housing navigation, tenant education, and stability-focused partnerships.</p>
+          <div class="actions">
+            <a class="btn small primary" href="#contact">Partner</a>
+            <a class="btn small ghost" href="#contact">Support</a>
+          </div>
+        </article>
       </div>
-    </article>
+    </section>
 
-    <article class="card">
-      <div class="tag">Media</div>
-      <h2>Management + Consulting</h2>
-      <p>Content strategy, production support, workflows, and distribution systems for creators and small brands.</p>
-      <div class="actions">
-        <a class="btn small primary" href="#contact">Start a project</a>
-        <a class="btn small ghost" href="#">Services</a>
+    <!-- Featured -->
+    <section class="section" id="featured">
+      <div class="kicker">Featured</div>
+      <h2 style="margin:0 0 10px 0; font-size: 22px; letter-spacing:-0.01em;">Work samples & reel</h2>
+      <p style="margin:0; color:var(--muted); line-height:1.55;">
+        Add your best 3 photos and one highlight video. Keep it tight — premium over quantity.
+      </p>
+
+      <div class="two-col">
+        <!-- Left: gallery -->
+        <div class="panel">
+          <h3>Photos</h3>
+          <p>
+            Upload images to <span style="color:rgba(255,255,255,0.85); font-weight:650;">/assets/photos/</span>
+            and replace the filenames below.
+          </p>
+
+          <div class="media-grid">
+            <img src="assets/photos/1.jpg" alt="Featured photo 1" onerror="this.style.display='none'">
+            <img src="assets/photos/2.jpg" alt="Featured photo 2" onerror="this.style.display='none'">
+            <img src="assets/photos/3.jpg" alt="Featured photo 3" onerror="this.style.display='none'">
+          </div>
+
+          <div class="fineprint">
+            Tip: Use JPGs sized ~1600px wide. Keep file names simple: 1.jpg, 2.jpg, 3.jpg.
+          </div>
+        </div>
+
+        <!-- Right: video -->
+        <div class="panel">
+          <h3>Video</h3>
+          <p>
+            Replace <strong style="color:rgba(255,255,255,0.90);">YOUR_VIDEO_ID</strong> with your YouTube video ID.
+            (Example: youtube.com/watch?v=<em>abc123</em> → ID is <em>abc123</em>.)
+          </p>
+
+          <div class="video" aria-label="Featured video">
+            <iframe
+              src="https://www.youtube.com/embed/YOUR_VIDEO_ID"
+              title="Skycraft Media Reel"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen></iframe>
+          </div>
+
+          <div class="fineprint">
+            If you prefer Vimeo, swap the iframe src to your Vimeo embed URL.
+          </div>
+        </div>
       </div>
-    </article>
+    </section>
 
-    <article class="card">
-      <div class="tag">Nonprofit</div>
-      <h2>Housing Advocacy</h2>
-      <p>Community-focused work centered on housing navigation, tenant education, and stability.</p>
-      <div class="actions">
-        <a class="btn small primary" href="#contact">Partner</a>
-        <a class="btn small ghost" href="#">Homes International</a>
+    <!-- Contact -->
+    <section class="section" id="contact">
+      <div class="kicker">Contact</div>
+      <h2 style="margin:0 0 10px 0; font-size: 22px; letter-spacing:-0.01em;">Let’s work</h2>
+      <p style="margin:0; color:var(--muted); line-height:1.55;">
+        Replace the placeholders below with your email, phone, and socials.
+        If you’re using a Google Form intake, add its link as the “Intake Form” item.
+      </p>
+
+      <div class="contact-grid">
+        <a class="contact-item" href="mailto:YOUR_EMAIL_HERE">
+          <span class="label">Email</span>
+          <span class="value">YOUR_EMAIL_HERE</span>
+        </a>
+
+        <a class="contact-item" href="tel:+13175551234">
+          <span class="label">Phone</span>
+          <span class="value">(317) 555-1234</span>
+        </a>
+
+        <a class="contact-item" href="https://instagram.com/YOURHANDLE" target="_blank" rel="noreferrer">
+          <span class="label">Instagram</span>
+          <span class="value">@YOURHANDLE</span>
+        </a>
+
+        <a class="contact-item" href="https://linkedin.com/in/YOURPROFILE" target="_blank" rel="noreferrer">
+          <span class="label">LinkedIn</span>
+          <span class="value">Connect</span>
+        </a>
+
+        <a class="contact-item" href="https://youtube.com/@YOURCHANNEL" target="_blank" rel="noreferrer">
+          <span class="label">YouTube</span>
+          <span class="value">Watch</span>
+        </a>
+
+        <a class="contact-item" href="https://forms.gle/YOURFORM" target="_blank" rel="noreferrer">
+          <span class="label">Intake Form</span>
+          <span class="value">Start here</span>
+        </a>
       </div>
-    </article>
-  </section>
 
-  <section id="contact" class="footer">
-    <h3>Contact</h3>
-    <p>
-      Add your intake form below (Google Form or embedded form). If you prefer email-first, use the button.
-    </p>
+      <div class="fineprint">© <span id="y"></span> Dominick Jones Services Inc.</div>
+    </section>
+  </div>
 
-    <div class="contact-actions">
-      <a class="btn primary" href="mailto:YOUR_EMAIL_HERE">Email</a>
-      <a class="btn ghost" href="#">Instagram</a>
-      <a class="btn ghost" href="#">LinkedIn</a>
-    </div>
-
-    <div class="fineprint">© <span id="y"></span> Dominick Jones Services Inc.</div>
-  </section>
-</div>
-
-<style>
-  :root{
-    --bg: #0b0d12;
-    --panel: rgba(255,255,255,0.06);
-    --panel2: rgba(255,255,255,0.035);
-    --border: rgba(255,255,255,0.14);
-    --text: rgba(255,255,255,0.92);
-    --muted: rgba(255,255,255,0.70);
-    --muted2: rgba(255,255,255,0.55);
-    --accent: #ffffff;
-  }
-
-  .hub{
-    font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-    background:
-      radial-gradient(1000px 420px at 18% 0%, rgba(255,255,255,0.10), transparent 62%),
-      radial-gradient(900px 420px at 86% 18%, rgba(255,255,255,0.07), transparent 55%),
-      var(--bg);
-    color: var(--text);
-    border-radius: 18px;
-    border: 1px solid var(--border);
-    padding: 28px;
-    max-width: 1100px;
-    margin: 0 auto;
-    box-sizing: border-box;
-  }
-
-  .hero{
-    padding: 36px 22px;
-    background: linear-gradient(180deg, var(--panel), var(--panel2));
-    border: 1px solid var(--border);
-    border-radius: 16px;
-  }
-
-  .kicker{
-    font-size: 12px;
-    letter-spacing: 0.22em;
-    text-transform: uppercase;
-    color: var(--muted2);
-    margin-bottom: 10px;
-  }
-
-  .hero h1{
-    margin: 0 0 10px 0;
-    font-weight: 780;
-    letter-spacing: -0.03em;
-    font-size: clamp(30px, 4.2vw, 56px);
-    line-height: 1.02;
-  }
-
-  .sub{
-    margin: 0 0 18px 0;
-    color: var(--muted);
-    max-width: 72ch;
-    line-height: 1.58;
-    font-size: 15.5px;
-  }
-
-  .cta{ display:flex; gap:12px; flex-wrap: wrap; }
-
-  .grid{
-    display:grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 14px;
-    margin-top: 14px;
-  }
-
-  .card{
-    border-radius: 16px;
-    padding: 18px;
-    background: linear-gradient(180deg, var(--panel), var(--panel2));
-    border: 1px solid var(--border);
-    transition: transform .18s ease, border-color .18s ease, background .18s ease;
-  }
-
-  .card:hover{
-    transform: translateY(-2px);
-    border-color: rgba(255,255,255,0.24);
-    background: linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.05));
-  }
-
-  .tag{
-    display:inline-block;
-    padding: 6px 10px;
-    border-radius: 999px;
-    border: 1px solid var(--border);
-    color: var(--muted2);
-    font-size: 12px;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    margin-bottom: 10px;
-  }
-
-  .card h2{
-    margin: 0 0 8px 0;
-    font-size: 18px;
-    letter-spacing: -0.01em;
-  }
-
-  .card p{
-    margin: 0 0 14px 0;
-    color: var(--muted);
-    line-height: 1.55;
-    font-size: 14.5px;
-  }
-
-  .actions{ display:flex; gap:10px; flex-wrap: wrap; }
-
-  .btn{
-    display:inline-flex;
-    align-items:center;
-    justify-content:center;
-    text-decoration:none;
-    border-radius: 12px;
-    padding: 12px 14px;
-    border: 1px solid var(--border);
-    color: var(--text);
-    font-weight: 650;
-    transition: transform .12s ease, background .12s ease, border-color .12s ease;
-    user-select: none;
-  }
-
-  .btn:hover{ transform: translateY(-1px); border-color: rgba(255,255,255,0.25); }
-
-  .primary{
-    background: var(--accent);
-    color: #0b0d12;
-    border-color: rgba(255,255,255,0.65);
-  }
-
-  .ghost{ background: rgba(255,255,255,0.04); }
-
-  .small{
-    padding: 10px 12px;
-    border-radius: 11px;
-    font-size: 13.5px;
-  }
-
-  .footer{
-    margin-top: 14px;
-    padding: 18px;
-    border-radius: 16px;
-    border: 1px solid var(--border);
-    background: linear-gradient(180deg, var(--panel), var(--panel2));
-  }
-
-  .footer h3{ margin: 0 0 6px 0; font-size: 16px; }
-  .footer p{ margin: 0 0 14px 0; color: var(--muted); line-height: 1.55; font-size: 14.5px; }
-  .contact-actions{ display:flex; gap:10px; flex-wrap: wrap; }
-  .fineprint{ margin-top: 16px; color: var(--muted2); font-size: 12px; }
-  @media (max-width: 860px){ .grid{ grid-template-columns: 1fr; } }
-</style>
-.brandrow{ margin: 10px 0 8px; }
-.brandlogo{
-  height: 34px;
-  width: auto;
-  object-fit: contain;
-  opacity: 0.95;
-  filter: drop-shadow(0 6px 18px rgba(0,0,0,0.25));
-}
-
-
-<script>
-  document.getElementById("y").textContent = new Date().getFullYear();
-</script>
+  <script>
+    document.getElementById("y").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
